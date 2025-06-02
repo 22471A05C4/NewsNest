@@ -9,7 +9,7 @@ const HomePage = () => {
   const [liked, setLiked] = useState({});
   const [disliked, setDisliked] = useState({});
   const [showShareIndex, setShowShareIndex] = useState(null);
-  const [showPostForm, setShowPostForm] = useState(false);
+  // const [showPostForm, setShowPostForm] = useState(false);
 
   const location = localStorage.getItem('selectedLocation') || '';
   const language = localStorage.getItem('preferredLanguage') || 'en';
@@ -18,6 +18,9 @@ const HomePage = () => {
 
   const handleToggleClick = () => {
     navigate('/menu'); // 👈 You can replace this with the actual path you want to navigate to
+  };
+  const handlePostSubmit = () => {
+    navigate('/post'); // 👈 You can replace this with the actual path you want to navigate to
   };
 
   const fetchNews = async (query = '') => {
@@ -80,11 +83,11 @@ const HomePage = () => {
     setShowShareIndex(showShareIndex === index ? null : index);
   };
 
-  const handlePostSubmit = (e) => {
-    e.preventDefault();
-    alert("Your post has been submitted!");
-    setShowPostForm(false);
-  };
+  // const handlePostSubmit = (e) => {
+  //   e.preventDefault();
+  //   alert("Your post has been submitted!");
+  //   setShowPostForm(false);
+  // };
 
   return (
     <div className="home-container">
@@ -98,7 +101,8 @@ const HomePage = () => {
         <div className="nav-heading">
           Today's News in {location} ({language.toUpperCase()})
         </div>
-        <button className="post-button" onClick={() => setShowPostForm(true)}>📝 Post</button>
+        <button className="post-button" onClick={handlePostSubmit}>📝 Post</button>
+        {/* <button className="post-button" onClick={({handlePostSubmit}) => setShowPostForm(true)}>📝 Post</button> */}
       </nav>
 
       <form className="search-bar" onSubmit={handleSearch}>
@@ -153,30 +157,7 @@ const HomePage = () => {
         )}
       </div>
 
-      {showPostForm && (
-        <div className="modal">
-          <div className="modal-content">
-            <h3>📝 Post Your Own News</h3>
-            <form onSubmit={handlePostSubmit}>
-              <input type="text" placeholder="Heading" required />
-              <textarea placeholder="News content" required></textarea>
-              <select required>
-                <option value="">Select Category</option>
-                <option>Politics</option>
-                <option>Sports</option>
-                <option>Entertainment</option>
-                <option>Technology</option>
-              </select>
-              <input type="file" accept="image/*,video/*" required />
-              <div className="form-actions">
-                <button type="submit">Submit</button>
-                <button type="button" onClick={() => setShowPostForm(false)}>Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
   );
 };
 
