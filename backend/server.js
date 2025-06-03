@@ -1,36 +1,27 @@
 const express=require('express')
 const mongoose=require('mongoose')
 const dotenv=require('dotenv')
+const cors=require('cors')
+const cookieParser=require('cookie-parser')
 dotenv.config()
 const app=express()
-const cors=require('cors')
-const path=require('path')
-const port=process.env.PORT
-const userSchema=require('./Models/User')
 const multer=require('multer')
-
-const MongoUrl=process.env.MONGo_URI
+const port=process.env.PORT||5000
+const mongourl=process.env.MongoUrl
+const authRoute = require('./Routes/authRoutes')
+//middleware
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors())
-app.use('/uploads',express.static(path.join(__dirname,'uploads')));
 
+app.use('/auth',authRoute)
 try{
-     mongoose.connect(MongoUrl)
-  console.log(`connected ${MongoUrl}`)
+    mongoose.connect(mongourl)
+    console.log("Mongodb connected")
 }
-catch{
-    console.log(err)
+catch(err){
+    console.log("mongodb Error connection",err)
 }
-
-const storage=multer.diskStorage({
-    destination:'./uploads',
-    filename:(req,file,cb)=>{
-        cb(null,Date.now()+'-'+file.originalname)
-    }
-})
-const upload=multer({storage})
-
 app.listen(port,()=>{
-    console.log("http://localhost:5000")
-    
+    console.log(`server connected to http://localhost:${port}`)
 })

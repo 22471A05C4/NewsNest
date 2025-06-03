@@ -20,7 +20,7 @@ const HomePage = () => {
     navigate('/menu'); // 👈 You can replace this with the actual path you want to navigate to
   };
   const handlePostSubmit = () => {
-    navigate('/post'); // 👈 You can replace this with the actual path you want to navigate to
+    navigate('/menu'); // 👈 You can replace this with the actual path you want to navigate to
   };
 
   const fetchNews = async (query = '') => {
