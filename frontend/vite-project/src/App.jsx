@@ -11,14 +11,24 @@ import LocationSelector from './components/LocationSelector';
 import HomePage from './components/HomePage';
 import SidebarMenu from './components/menu';
 import PostForm from './components/Post';
+import Navbar from './components/Navbar';
+import News from './components/SearchBar';
+import { useState } from 'react';
 
 function App() {
+  const[query,setQuery]=useState('');
+  const[language,setLanguage]=useState('English');
   
-
+const handleSearch=(newQuery,selectedLang)=>{
+  setQuery(newQuery);
+  setLanguage(selectedLang);
+}
   return (
     <>
     
     <Router>
+      {/* <Navbar onSearch={handleSearch}/>
+      <News searchQuery={query} language={language}/> */}
       <Routes>
         <Route path="/" element={<WelcomePage/>} />
         <Route path="/login" element={<Login/>} />

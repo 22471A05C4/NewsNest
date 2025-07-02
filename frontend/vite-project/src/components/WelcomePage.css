@@ -1,5 +1,5 @@
 /* Gradient background with animation */
-@keyframes gradientFlow {
+/* @keyframes gradientFlow {
   0% {
     background-position: 0% 50%;
   }
@@ -21,6 +21,80 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.welcome-content {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.welcome-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+  animation: pulseText 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0% {
+    text-shadow: 0 0 8px #facc15, 0 0 16px #facc15;
+  }
+  50% {
+    text-shadow: 0 0 18px #facc15, 0 0 32px #facc15;
+  }
+  100% {
+    text-shadow: 0 0 8px #facc15, 0 0 16px #facc15;
+  }
+}
+
+.highlight {
+  color: #facc15;
+}
+
+.welcome-subtext {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+} */
+
+
+
+/* Ensure body and html have no scrollbars and are fixed */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Gradient background with animation */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.welcome-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #6366f1, #8b5cf6, #ec4899, #f43f5e);
+  background-size: 300% 300%;
+  animation: gradientFlow 10s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9999;
 }
 
 .welcome-content {
