@@ -1,11 +1,11 @@
  import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css'
-import WelcomePage from './Components/WelcomePage';
-import Login from './Components/Login';
-import Signup from './Components/SignUp';
-import ThemeSelector from './Components/ThemeSelector';
-import Dashboard from './Components/Dashboard';
+import WelcomePage from './components/WelcomePage';
+import Login from './components/Login';
+import Signup from './components/SignUp';
+import ThemeSelector from './components/ThemeSelector';
+import Dashboard from './components/Dashboard';
 import LanguageSelector from './components/LanguageSelector';
 import LocationSelector from './components/LocationSelector';
 import HomePage from './components/HomePage';
