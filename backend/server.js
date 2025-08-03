@@ -71,6 +71,9 @@ app.use('/Uploads', express.static(path.join(__dirname, 'uploads')));
 // Routes
 app.use('/auth', authRoute);
 app.use("/auth/posts", postRoute);
+app.get("/", (req, res) => {
+  res.send("✅ News backend is live on Railway!");
+});
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://bhargavi:root@news.vfdnnap.mongodb.net/?retryWrites=true&w=majority&appName=news")
