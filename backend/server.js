@@ -57,8 +57,8 @@ const port = process.env.PORT || 5000;
 const mongourl = process.env.MongoUrl;
 
 // Importing Routes
-const authRoute = require('./Routes/authRoutes');
-const postRoute = require('./Routes/postroute');
+const authRoute = require('./routes/authRoutes');
+const postRoute = require('./routes/postroute');
 
 // Middleware (IMPORTANT: Order matters!)
 app.use(cors({ origin: "http://localhost:5173", credentials: true })); // allow frontend to access
