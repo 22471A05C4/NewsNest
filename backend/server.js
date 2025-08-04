@@ -63,7 +63,7 @@ const postRoute = require('./routes/postroute');
 // Middleware (IMPORTANT: Order matters!)
 app.use(cors({
   origin: [
-    "https://newsnest-i54e.onrender.com",
+    "https://news-nest-seven.vercel.app/",
     "http://localhost:5173",
     "http://localhost:5000"
   ],
