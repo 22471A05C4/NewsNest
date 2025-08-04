@@ -61,7 +61,14 @@ const authRoute = require('./routes/authRoutes');
 const postRoute = require('./routes/postroute');
 
 // Middleware (IMPORTANT: Order matters!)
-app.use(cors({ origin: "http://localhost:5173", credentials: true })); // allow frontend to access
+app.use(cors({
+  origin: [
+    "https://newsnest-i54e.onrender.com",
+    "http://localhost:5173",
+    "http://localhost:5000"
+  ],
+  credentials: true
+})); // allow frontend to access
 app.use(express.json());
 app.use(cookieParser());
 
