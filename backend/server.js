@@ -65,7 +65,7 @@ app.use(cors({
   origin: [
     "https://news-nest-seven.vercel.app",
     "https://news-nest-git-main-bhargavis-projects-01f6be1c.vercel.app/",
-    "http://localhost:5173",
+    "http://localhost:5174",
     "http://localhost:5000"
   ],
   credentials: true
